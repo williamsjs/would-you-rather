@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { populateData } from './utils/api';
+import { connect } from 'react-redux';
+import { setAuthedUser } from './actions/authedUser';
 
 class App extends Component {
   componentDidMount() {
     populateData().then(data => {
-      console.log(data);
+      // TODO: dispatch action to populate state
     });
   }
 
   render() {
+   
     return (
       <div className="App">
         <header className="App-header">
@@ -32,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
