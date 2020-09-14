@@ -6,8 +6,9 @@ import reducer from './reducers';
 import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
+import middleware from './middleware';
 
-const store = createStore(reducer);
+const store = createStore(reducer, middleware);
 
 ReactDOM.render(
   <React.StrictMode>

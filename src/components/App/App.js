@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
-import { populateData } from '../../utils/api';
 import { connect } from 'react-redux';
-import { setAuthedUser } from '../../actions/authedUser';
+import Login from '../Login/Login';
+import Dashboard from '../Dashboard/Dashboard';
+import { handleInitialData } from '../../actions/shared.js';
 
 class App extends Component {
   componentDidMount() {
-    populateData().then(data => {
-      // TODO: dispatch action to populate state
-    });
+    this.props.dispatch(handleInitialData());
   }
 
   render() {
-   
+    const { authedUser } = this.props;
+
     return (
-      <div className="App">
-        <h1>App Component</h1>
+      <div className="app">
+        {authedUser === null
+        ? <Login />
+        : <Dashboard />}
       </div>
     );
   }
 }
 
-export default connect()(App);
+const mapStateToProps = ({authedUser}) => ({authedUser});
+
+export default connect(mapStateToProps)(App);
