@@ -10,9 +10,10 @@ class Nav extends Component {
   render() { 
     return ( 
       <ul className="nav-bar">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Questions</a></li>
-        <li><a href="#" onClick={this.logout}>Logout</a></li>
+        <li class="nav-link"><a href="#">Home</a></li>
+        <li class="nav-link"><a href="#">New Question</a></li>
+        <li class="nav-link"><a href="#">Leaderboard</a></li>
+        <li class="nav-link"><a href="#" onClick={this.logout}>Logout</a></li>
       </ul>
     );
   }
