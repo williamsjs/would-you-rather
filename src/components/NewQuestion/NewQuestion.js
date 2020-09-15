@@ -1,8 +1,6 @@
+import React, { Component } from 'react';
+
 class NewQuestion extends Component {
-  state = { 
-
-  }
-
   render() { 
     return ( 
       <div className="new-question">
