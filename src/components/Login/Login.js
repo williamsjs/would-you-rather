@@ -4,9 +4,18 @@ import { setAuthedUser } from '../../actions/authedUser';
 import LoadingBar from 'react-redux-loading';
 
 class Login extends Component {
+  state = {
+    selectedId: ''
+  }
+
   login = (e) => {
     e.preventDefault();
-    this.props.dispatch(setAuthedUser(2323));
+    this.props.dispatch(setAuthedUser(this.state.selectedId));
+  }
+
+  handleChange = (e) => {
+    e.persist();
+    this.setState(() => ({selectedId: e.target.value}));
   }
 
   render() { 
@@ -19,9 +28,14 @@ class Login extends Component {
           <h1>loading</h1>
         )
           ? null
-          : userKeys.map(userKey => (
-            <p key={users[userKey].id}>{users[userKey].id}</p>
-          ))
+          : (
+              <select value={this.state.selectedId} onChange={this.handleChange}>
+                <option value="">Select user</option>
+                {userKeys.map(userKey => (
+                  <option key={users[userKey].id} value={users[userKey].id}>{users[userKey].name}</option>
+                ))}
+              </select>
+            )
         }
         <button onClick={this.login}>login</button>
       </div>
