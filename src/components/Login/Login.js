@@ -10,7 +10,10 @@ class Login extends Component {
 
   login = (e) => {
     e.preventDefault();
-    this.props.dispatch(setAuthedUser(this.state.selectedId));
+
+    if (this.state.selectedId in this.props.users) {
+      this.props.dispatch(setAuthedUser(this.state.selectedId));
+    }
   }
 
   handleChange = (e) => {

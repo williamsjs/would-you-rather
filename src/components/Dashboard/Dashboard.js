@@ -4,13 +4,16 @@ import Nav from '../Nav/Nav';
 
 class Dashboard extends Component {
   render() { 
+    const { authedUser, users } = this.props;
+
     return ( 
       <div className="dashboard">
-        Dashboard page
+        Welcome, {users[authedUser].name}
         <Nav />
       </div>
     );
   }
 }
- 
-export default connect()(Dashboard);
+
+const mapStateToProps = ({authedUser, users}) => ({authedUser, users});
+export default connect(mapStateToProps)(Dashboard);
