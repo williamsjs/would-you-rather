@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
+import Home from '../Home/Home';
 import NewQuestion from '../NewQuestion/NewQuestion';
+import Leaderboard from '../Leaderboard/Leaderboard';
 import {
   Switch,
   Route
@@ -17,8 +19,14 @@ class Dashboard extends Component {
         <Nav />
 
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/new-question">
             <NewQuestion />
+          </Route>
+          <Route path="/leaderboard">
+            <Leaderboard />
           </Route>
         </Switch>
       </div>
