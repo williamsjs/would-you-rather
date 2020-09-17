@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../../actions/authedUser';
-import { Link } from 'react-router-dom';
 import NavLink from '../NavLink/NavLink';
 
 class Nav extends Component {
